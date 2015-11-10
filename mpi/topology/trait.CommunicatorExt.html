@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `CommunicatorExt` trait in crate `mpi`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, CommunicatorExt">
+
+    <title>mpi::topology::CommunicatorExt - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>mpi</a>::<wbr><a href='index.html'>topology</a></p><script>window.sidebarCurrent = {name: 'CommunicatorExt', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>mpi</a>::<wbr><a href='index.html'>topology</a>::<wbr><a class='trait' href=''>CommunicatorExt</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-22997' class='srclink' href='../../src/mpi/topology/mod.rs.html#310-505' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait CommunicatorExt: <a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../mpi/raw/trait.RawCommunicator.html' title='mpi::raw::RawCommunicator'>RawCommunicator</a> {
+    fn <a href='#method.size' class='fnname'>size</a>(&amp;self) -&gt; <a class='type' href='../../mpi/topology/type.Rank.html' title='mpi::topology::Rank'>Rank</a> { ... }
+    fn <a href='#method.rank' class='fnname'>rank</a>(&amp;self) -&gt; <a class='type' href='../../mpi/topology/type.Rank.html' title='mpi::topology::Rank'>Rank</a> { ... }
+    fn <a href='#method.process_at_rank' class='fnname'>process_at_rank</a>(&amp;self, r: <a class='type' href='../../mpi/topology/type.Rank.html' title='mpi::topology::Rank'>Rank</a>) -&gt; <a class='struct' href='../../mpi/topology/struct.Identifier.html' title='mpi::topology::Identifier'>Identifier</a>&lt;Self&gt; { ... }
+    fn <a href='#method.null_process' class='fnname'>null_process</a>(&amp;self) -&gt; <a class='struct' href='../../mpi/topology/struct.Identifier.html' title='mpi::topology::Identifier'>Identifier</a>&lt;Self&gt; { ... }
+    fn <a href='#method.this_process' class='fnname'>this_process</a>(&amp;self) -&gt; <a class='struct' href='../../mpi/topology/struct.Identifier.html' title='mpi::topology::Identifier'>Identifier</a>&lt;Self&gt; { ... }
+    fn <a href='#method.compare' class='fnname'>compare</a>&lt;C: ?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../mpi/raw/trait.RawCommunicator.html' title='mpi::raw::RawCommunicator'>RawCommunicator</a>&gt;(&amp;self, other: &amp;C) -&gt; <a class='enum' href='../../mpi/topology/enum.CommunicatorRelation.html' title='mpi::topology::CommunicatorRelation'>CommunicatorRelation</a> { ... }
+    fn <a href='#method.duplicate' class='fnname'>duplicate</a>(&amp;self) -&gt; <a class='struct' href='../../mpi/topology/struct.UserCommunicator.html' title='mpi::topology::UserCommunicator'>UserCommunicator</a> { ... }
+    fn <a href='#method.split_by_color' class='fnname'>split_by_color</a>(&amp;self, color: <a class='struct' href='../../mpi/topology/struct.Color.html' title='mpi::topology::Color'>Color</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../mpi/topology/struct.UserCommunicator.html' title='mpi::topology::UserCommunicator'>UserCommunicator</a>&gt; { ... }
+    fn <a href='#method.split_by_color_with_key' class='fnname'>split_by_color_with_key</a>(&amp;self, color: <a class='struct' href='../../mpi/topology/struct.Color.html' title='mpi::topology::Color'>Color</a>, key: <a class='type' href='../../mpi/topology/type.Key.html' title='mpi::topology::Key'>Key</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../mpi/topology/struct.UserCommunicator.html' title='mpi::topology::UserCommunicator'>UserCommunicator</a>&gt; { ... }
+    fn <a href='#method.split_by_subgroup_collective' class='fnname'>split_by_subgroup_collective</a>&lt;G: ?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../mpi/raw/trait.RawGroup.html' title='mpi::raw::RawGroup'>RawGroup</a>&gt;(&amp;self, group: &amp;G) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../mpi/topology/struct.UserCommunicator.html' title='mpi::topology::UserCommunicator'>UserCommunicator</a>&gt; { ... }
+    fn <a href='#method.split_by_subgroup' class='fnname'>split_by_subgroup</a>&lt;G: ?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../mpi/raw/trait.RawGroup.html' title='mpi::raw::RawGroup'>RawGroup</a>&gt;(&amp;self, group: &amp;G) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../mpi/topology/struct.UserCommunicator.html' title='mpi::topology::UserCommunicator'>UserCommunicator</a>&gt; { ... }
+    fn <a href='#method.split_by_subgroup_with_tag' class='fnname'>split_by_subgroup_with_tag</a>&lt;G: ?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../mpi/raw/trait.RawGroup.html' title='mpi::raw::RawGroup'>RawGroup</a>&gt;(&amp;self, group: &amp;G, tag: <a class='type' href='../../mpi/type.Tag.html' title='mpi::Tag'>Tag</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../mpi/topology/struct.UserCommunicator.html' title='mpi::topology::UserCommunicator'>UserCommunicator</a>&gt; { ... }
+    fn <a href='#method.group' class='fnname'>group</a>(&amp;self) -&gt; <a class='struct' href='../../mpi/topology/struct.UserGroup.html' title='mpi::topology::UserGroup'>UserGroup</a> { ... }
+}</pre><div class='docblock'><p>Standard operations on communicators</p>
+</div>
+            <h2 id='provided-methods'>Provided Methods</h2>
+            <div class='methods'>
+        <h3 id='method.size' class='method stab '><code>fn <a href='#method.size' class='fnname'>size</a>(&amp;self) -&gt; <a class='type' href='../../mpi/topology/type.Rank.html' title='mpi::topology::Rank'>Rank</a></code></h3><div class='docblock'><p>Number of processes in this communicator</p>
+
+<h1 id="examples" class='section-header'><a
+                           href="#examples">Examples</a></h1>
+<p>See <code>examples/simple.rs</code></p>
+
+<h1 id="standard-section(s)" class='section-header'><a
+                           href="#standard-section(s)">Standard section(s)</a></h1>
+<p>6.4.1</p>
+</div><h3 id='method.rank' class='method stab '><code>fn <a href='#method.rank' class='fnname'>rank</a>(&amp;self) -&gt; <a class='type' href='../../mpi/topology/type.Rank.html' title='mpi::topology::Rank'>Rank</a></code></h3><div class='docblock'><p>The <code>Rank</code> that identifies the calling process within this communicator</p>
+
+<h1 id="examples" class='section-header'><a
+                           href="#examples">Examples</a></h1>
+<p>See <code>examples/simple.rs</code></p>
+
+<h1 id="standard-section(s)" class='section-header'><a
+                           href="#standard-section(s)">Standard section(s)</a></h1>
+<p>6.4.1</p>
+</div><h3 id='method.process_at_rank' class='method stab '><code>fn <a href='#method.process_at_rank' class='fnname'>process_at_rank</a>(&amp;self, r: <a class='type' href='../../mpi/topology/type.Rank.html' title='mpi::topology::Rank'>Rank</a>) -&gt; <a class='struct' href='../../mpi/topology/struct.Identifier.html' title='mpi::topology::Identifier'>Identifier</a>&lt;Self&gt;</code></h3><div class='docblock'><p>Bundles a reference to this communicator with a specific <code>Rank</code> into an <code>Identifier</code>.</p>
+
+<h1 id="examples" class='section-header'><a
+                           href="#examples">Examples</a></h1>
+<p>See <code>examples/broadcast.rs</code> <code>examples/gather.rs</code> <code>examples/send_receive.rs</code></p>
+</div><h3 id='method.null_process' class='method stab '><code>fn <a href='#method.null_process' class='fnname'>null_process</a>(&amp;self) -&gt; <a class='struct' href='../../mpi/topology/struct.Identifier.html' title='mpi::topology::Identifier'>Identifier</a>&lt;Self&gt;</code></h3><div class='docblock'><p>The null process</p>
+
+<p>Point to point send/receive operations involving the null process as source/destination
+have no effect.</p>
+
+<h1 id="examples" class='section-header'><a
+                           href="#examples">Examples</a></h1>
+<p>See <code>examples/null_process.rs</code></p>
+
+<h1 id="standard-section(s)" class='section-header'><a
+                           href="#standard-section(s)">Standard section(s)</a></h1>
+<p>3.11</p>
+</div><h3 id='method.this_process' class='method stab '><code>fn <a href='#method.this_process' class='fnname'>this_process</a>(&amp;self) -&gt; <a class='struct' href='../../mpi/topology/struct.Identifier.html' title='mpi::topology::Identifier'>Identifier</a>&lt;Self&gt;</code></h3><div class='docblock'><p>An <code>Identifier</code> for the calling process</p>
+</div><h3 id='method.compare' class='method stab '><code>fn <a href='#method.compare' class='fnname'>compare</a>&lt;C: ?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../mpi/raw/trait.RawCommunicator.html' title='mpi::raw::RawCommunicator'>RawCommunicator</a>&gt;(&amp;self, other: &amp;C) -&gt; <a class='enum' href='../../mpi/topology/enum.CommunicatorRelation.html' title='mpi::topology::CommunicatorRelation'>CommunicatorRelation</a></code></h3><div class='docblock'><p>Compare two communicators.</p>
+
+<p>See enum <code>CommunicatorRelation</code>.</p>
+
+<h1 id="standard-section(s)" class='section-header'><a
+                           href="#standard-section(s)">Standard section(s)</a></h1>
+<p>6.4.1</p>
+</div><h3 id='method.duplicate' class='method stab '><code>fn <a href='#method.duplicate' class='fnname'>duplicate</a>(&amp;self) -&gt; <a class='struct' href='../../mpi/topology/struct.UserCommunicator.html' title='mpi::topology::UserCommunicator'>UserCommunicator</a></code></h3><div class='docblock'><p>Duplicate a communicator.</p>
+
+<h1 id="examples" class='section-header'><a
+                           href="#examples">Examples</a></h1>
+<p>See <code>examples/duplicate.rs</code></p>
+
+<h1 id="standard-section(s)" class='section-header'><a
+                           href="#standard-section(s)">Standard section(s)</a></h1>
+<p>6.4.2</p>
+</div><h3 id='method.split_by_color' class='method stab '><code>fn <a href='#method.split_by_color' class='fnname'>split_by_color</a>(&amp;self, color: <a class='struct' href='../../mpi/topology/struct.Color.html' title='mpi::topology::Color'>Color</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../mpi/topology/struct.UserCommunicator.html' title='mpi::topology::UserCommunicator'>UserCommunicator</a>&gt;</code></h3><div class='docblock'><p>Split a communicator by color.</p>
+
+<p>Creates as many new communicators as distinct values of <code>color</code> are given. All processes
+with the same value of <code>color</code> join the same communicator. A process that passes the
+special undefined color will not join a new communicator and <code>None</code> is returned.</p>
+
+<h1 id="examples" class='section-header'><a
+                           href="#examples">Examples</a></h1>
+<p>See <code>examples/split.rs</code></p>
+
+<h1 id="standard-section(s)" class='section-header'><a
+                           href="#standard-section(s)">Standard section(s)</a></h1>
+<p>6.4.2</p>
+</div><h3 id='method.split_by_color_with_key' class='method stab '><code>fn <a href='#method.split_by_color_with_key' class='fnname'>split_by_color_with_key</a>(&amp;self, color: <a class='struct' href='../../mpi/topology/struct.Color.html' title='mpi::topology::Color'>Color</a>, key: <a class='type' href='../../mpi/topology/type.Key.html' title='mpi::topology::Key'>Key</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../mpi/topology/struct.UserCommunicator.html' title='mpi::topology::UserCommunicator'>UserCommunicator</a>&gt;</code></h3><div class='docblock'><p>Split a communicator by color.</p>
+
+<p>Like <code>split()</code> but orders processes according to the value of <code>key</code> in the new
+communicators.</p>
+
+<h1 id="standard-section(s)" class='section-header'><a
+                           href="#standard-section(s)">Standard section(s)</a></h1>
+<p>6.4.2</p>
+</div><h3 id='method.split_by_subgroup_collective' class='method stab '><code>fn <a href='#method.split_by_subgroup_collective' class='fnname'>split_by_subgroup_collective</a>&lt;G: ?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../mpi/raw/trait.RawGroup.html' title='mpi::raw::RawGroup'>RawGroup</a>&gt;(&amp;self, group: &amp;G) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../mpi/topology/struct.UserCommunicator.html' title='mpi::topology::UserCommunicator'>UserCommunicator</a>&gt;</code></h3><div class='docblock'><p>Split a communicator collectively by subgroup.</p>
+
+<p>Proceses pass in a group that is a subgroup of the group associated with the old
+communicator. Different processes may pass in different groups, but if two groups are
+different, they have to be disjunct. One new communicator is created for each distinct
+group. The new communicator is returned if a process is a member of the group he passed in,
+otherwise <code>None</code>.</p>
+
+<p>This call is a collective operation on the old communicator so all processes have to
+partake.</p>
+
+<h1 id="examples" class='section-header'><a
+                           href="#examples">Examples</a></h1>
+<p>See <code>examples/split.rs</code></p>
+
+<h1 id="standard-section(s)" class='section-header'><a
+                           href="#standard-section(s)">Standard section(s)</a></h1>
+<p>6.4.2</p>
+</div><h3 id='method.split_by_subgroup' class='method stab '><code>fn <a href='#method.split_by_subgroup' class='fnname'>split_by_subgroup</a>&lt;G: ?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../mpi/raw/trait.RawGroup.html' title='mpi::raw::RawGroup'>RawGroup</a>&gt;(&amp;self, group: &amp;G) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../mpi/topology/struct.UserCommunicator.html' title='mpi::topology::UserCommunicator'>UserCommunicator</a>&gt;</code></h3><div class='docblock'><p>Split a communicator by subgroup.</p>
+
+<p>Like <code>split_by_subgroup_collective()</code> but not a collective operation.</p>
+
+<h1 id="examples" class='section-header'><a
+                           href="#examples">Examples</a></h1>
+<p>See <code>examples/split.rs</code></p>
+
+<h1 id="standard-section(s)" class='section-header'><a
+                           href="#standard-section(s)">Standard section(s)</a></h1>
+<p>6.4.2</p>
+</div><h3 id='method.split_by_subgroup_with_tag' class='method stab '><code>fn <a href='#method.split_by_subgroup_with_tag' class='fnname'>split_by_subgroup_with_tag</a>&lt;G: ?<a class='trait' href='https://doc.rust-lang.org/nightly/core/marker/trait.Sized.html' title='core::marker::Sized'>Sized</a> + <a class='trait' href='../../mpi/raw/trait.RawGroup.html' title='mpi::raw::RawGroup'>RawGroup</a>&gt;(&amp;self, group: &amp;G, tag: <a class='type' href='../../mpi/type.Tag.html' title='mpi::Tag'>Tag</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/option/enum.Option.html' title='core::option::Option'>Option</a>&lt;<a class='struct' href='../../mpi/topology/struct.UserCommunicator.html' title='mpi::topology::UserCommunicator'>UserCommunicator</a>&gt;</code></h3><div class='docblock'><p>Split a communicator by subgroup</p>
+
+<p>Like <code>split_by_subgroup()</code> but can avoid collision of concurrent calls
+(i.e. multithreaded) by passing in distinct tags.</p>
+
+<h1 id="standard-section(s)" class='section-header'><a
+                           href="#standard-section(s)">Standard section(s)</a></h1>
+<p>6.4.2</p>
+</div><h3 id='method.group' class='method stab '><code>fn <a href='#method.group' class='fnname'>group</a>(&amp;self) -&gt; <a class='struct' href='../../mpi/topology/struct.UserGroup.html' title='mpi::topology::UserGroup'>UserGroup</a></code></h3><div class='docblock'><p>The group associated with this communicator</p>
+
+<h1 id="standard-section(s)" class='section-header'><a
+                           href="#standard-section(s)">Standard section(s)</a></h1>
+<p>6.3.2</p>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    </ul><script type="text/javascript" async
+                              src="../../implementors/mpi/topology/trait.CommunicatorExt.js">
+                      </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "mpi";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script async src="../../search-index.js"></script>
+</body>
+</html>

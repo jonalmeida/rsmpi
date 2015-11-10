@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="rustdoc">
+    <meta name="description" content="API documentation for the Rust `Source` trait in crate `mpi`.">
+    <meta name="keywords" content="rust, rustlang, rust-lang, Source">
+
+    <title>mpi::point_to_point::Source - Rust</title>
+
+    <link rel="stylesheet" type="text/css" href="../../main.css">
+
+    
+    
+</head>
+<body class="rustdoc">
+    <!--[if lte IE 8]>
+    <div class="warning">
+        This old browser is unsupported and will most likely display funky
+        things.
+    </div>
+    <![endif]-->
+
+    
+
+    <nav class="sidebar">
+        
+        <p class='location'><a href='../index.html'>mpi</a>::<wbr><a href='index.html'>point_to_point</a></p><script>window.sidebarCurrent = {name: 'Source', ty: 'trait', relpath: ''};</script><script defer src="sidebar-items.js"></script>
+    </nav>
+
+    <nav class="sub">
+        <form class="search-form js-only">
+            <div class="search-container">
+                <input class="search-input" name="search"
+                       autocomplete="off"
+                       placeholder="Click or press ‘S’ to search, ‘?’ for more options…"
+                       type="search">
+            </div>
+        </form>
+    </nav>
+
+    <section id='main' class="content trait">
+<h1 class='fqn'><span class='in-band'>Trait <a href='../index.html'>mpi</a>::<wbr><a href='index.html'>point_to_point</a>::<wbr><a class='trait' href=''>Source</a></span><span class='out-of-band'><span id='render-detail'>
+            <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
+                [<span class='inner'>&#x2212;</span>]
+            </a>
+        </span><a id='src-18649' class='srclink' href='../../src/mpi/point_to_point/mod.rs.html#52-55' title='goto source code'>[src]</a></span></h1>
+<pre class='rust trait'>pub trait Source: <a class='trait' href='../../mpi/topology/trait.Communicator.html' title='mpi::topology::Communicator'>Communicator</a> {
+    fn <a href='#tymethod.source_rank' class='fnname'>source_rank</a>(&amp;self) -&gt; <a class='type' href='../../mpi/topology/type.Rank.html' title='mpi::topology::Rank'>Rank</a>;
+}</pre><div class='docblock'><p>Something that can be used as the source in a point to point receive operation</p>
+
+<h1 id="examples" class='section-header'><a
+                           href="#examples">Examples</a></h1>
+<ul>
+<li>An <code>Identifier</code> used as a source for a receive operation will receive data only from the
+identified process.</li>
+<li>A communicator can also be used as a source. The receive operation will receive data from
+any process in the communicator.</li>
+</ul>
+
+<h1 id="standard-section(s)" class='section-header'><a
+                           href="#standard-section(s)">Standard section(s)</a></h1>
+<p>3.2.3</p>
+</div>
+            <h2 id='required-methods'>Required Methods</h2>
+            <div class='methods'>
+        <h3 id='tymethod.source_rank' class='method stab '><code>fn <a href='#tymethod.source_rank' class='fnname'>source_rank</a>(&amp;self) -&gt; <a class='type' href='../../mpi/topology/type.Rank.html' title='mpi::topology::Rank'>Rank</a></code></h3><div class='docblock'><p><code>Rank</code> that identifies the source</p>
+</div></div>
+        <h2 id='implementors'>Implementors</h2>
+        <ul class='item-list' id='implementors-list'>
+    <li><code>impl <a class='trait' href='../../mpi/point_to_point/trait.Source.html' title='mpi::point_to_point::Source'>Source</a> for <a class='struct' href='../../mpi/topology/struct.SystemCommunicator.html' title='mpi::topology::SystemCommunicator'>SystemCommunicator</a></code></li>
+<li><code>impl&lt;'a&gt; <a class='trait' href='../../mpi/point_to_point/trait.Source.html' title='mpi::point_to_point::Source'>Source</a> for &amp;'a <a class='struct' href='../../mpi/topology/struct.UserCommunicator.html' title='mpi::topology::UserCommunicator'>UserCommunicator</a></code></li>
+<li><code>impl&lt;'a, C: 'a + <a class='trait' href='../../mpi/raw/trait.RawCommunicator.html' title='mpi::raw::RawCommunicator'>RawCommunicator</a>&gt; <a class='trait' href='../../mpi/point_to_point/trait.Source.html' title='mpi::point_to_point::Source'>Source</a> for <a class='struct' href='../../mpi/topology/struct.Identifier.html' title='mpi::topology::Identifier'>Identifier</a>&lt;'a, C&gt;</code></li>
+</ul><script type="text/javascript" async
+                              src="../../implementors/mpi/point_to_point/trait.Source.js">
+                      </script></section>
+    <section id='search' class="content hidden"></section>
+
+    <section class="footer"></section>
+
+    <aside id="help" class="hidden">
+        <div>
+            <h1 class="hidden">Help</h1>
+
+            <div class="shortcuts">
+                <h2>Keyboard Shortcuts</h2>
+
+                <dl>
+                    <dt>?</dt>
+                    <dd>Show this help dialog</dd>
+                    <dt>S</dt>
+                    <dd>Focus the search field</dd>
+                    <dt>&larrb;</dt>
+                    <dd>Move up in search results</dd>
+                    <dt>&rarrb;</dt>
+                    <dd>Move down in search results</dd>
+                    <dt>&#9166;</dt>
+                    <dd>Go to active search result</dd>
+                </dl>
+            </div>
+
+            <div class="infos">
+                <h2>Search Tricks</h2>
+
+                <p>
+                    Prefix searches with a type followed by a colon (e.g.
+                    <code>fn:</code>) to restrict the search to a given type.
+                </p>
+
+                <p>
+                    Accepted types are: <code>fn</code>, <code>mod</code>,
+                    <code>struct</code>, <code>enum</code>,
+                    <code>trait</code>, <code>type</code>, <code>macro</code>,
+                    and <code>const</code>.
+                </p>
+
+                <p>
+                    Search functions by type signature (e.g.
+                    <code>vec -> usize</code>)
+                </p>
+            </div>
+        </div>
+    </aside>
+
+    
+
+    <script>
+        window.rootPath = "../../";
+        window.currentCrate = "mpi";
+        window.playgroundUrl = "";
+    </script>
+    <script src="../../jquery.js"></script>
+    <script src="../../main.js"></script>
+    
+    <script async src="../../search-index.js"></script>
+</body>
+</html>
